@@ -11,8 +11,10 @@ public class Candidate {
     // Keeps the candidate's graduation year fixed after creation.
     private final int graduationYear;
 
+    private final String[] skills;
+
     // Creates a candidate record from their name and eligibility details.
-    public Candidate(String name, double percentage, int backlogs, int graduationYear) {
+    public Candidate(String name, double percentage, int backlogs, int graduationYear, String[] skills) {
         // Saves the candidate's name.
         this.name = name;
         // Saves the candidate's percentage.
@@ -21,36 +23,45 @@ public class Candidate {
         this.backlogs = backlogs;
         // Saves the candidate's graduation year.
         this.graduationYear = graduationYear;
-    // Marks the end of the candidate constructor.
+        // Marks the end of the candidate constructor.
+        this.skills = skills;
     }
 
     // Provides access to the candidate's name.
     public String getName() {
         // Returns the name stored in this candidate record.
         return name;
-    // Marks the end of the name getter.
+        // Marks the end of the name getter.
     }
 
     // Provides access to the candidate's percentage.
     public double getPercentage() {
         // Returns the percentage stored in this candidate record.
         return percentage;
-    // Marks the end of the percentage getter.
+        // Marks the end of the percentage getter.
     }
 
     // Provides access to the candidate's backlog count.
     public int getBacklogs() {
         // Returns the backlog count stored in this candidate record.
         return backlogs;
-    // Marks the end of the backlogs getter.
+        // Marks the end of the backlogs getter.
     }
 
     // Provides access to the candidate's graduation year.
     public int getGraduationYear() {
         // Returns the graduation year stored in this candidate record.
         return graduationYear;
-    // Marks the end of the graduation-year getter.
+        // Marks the end of the graduation-year getter.
     }
 
+    public boolean hasSkill(String requiredSkill) {
+        for (String skill : skills) {
+            if (skill.equalsIgnoreCase(requiredSkill)) {
+                return true;
+            }
+        }
+        return false;
+    }
 // Marks the end of the candidate class.
 }

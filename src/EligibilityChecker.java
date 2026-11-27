@@ -8,8 +8,8 @@ public class EligibilityChecker {
     // Creates the checker and prepares the eligibility rules.
     public EligibilityChecker() {
         // Sets up the percentage, backlog, and graduation-year checks.
-        rules = new EligibilityRule[]{new PercentageRule(), new BacklogRule(), new GraduationYearRule()};
-    // Marks the end of the checker constructor.
+        rules = new EligibilityRule[]{new PercentageRule(), new BacklogRule(), new GraduationYearRule(), new SkillRule()};
+        // Marks the end of the checker constructor.
     }
 
     // Runs every rule and reports whether the candidate passes them all.
@@ -24,19 +24,19 @@ public class EligibilityChecker {
             if (pass) {
                 // Prints the name of the rule and its passing result.
                 System.out.println(rule1.getRuleName() + ": PASS");
-            // Handles a rule that the candidate does not pass.
+                // Handles a rule that the candidate does not pass.
             } else {
                 // Prints the name of the rule and its failing result.
                 System.out.println(rule1.getRuleName() + ": FAIL");
                 // Records that the candidate did not meet every requirement.
                 eligible = false;
-            // Marks the end of the current rule's result choice.
+                // Marks the end of the current rule's result choice.
             }
-        // Marks the end of the loop through all rules.
+            // Marks the end of the loop through all rules.
         }
         // Returns whether every eligibility rule passed.
         return eligible;
-    // Marks the end of the evaluation method.
+        // Marks the end of the evaluation method.
     }
 // Marks the end of the eligibility checker.
 }

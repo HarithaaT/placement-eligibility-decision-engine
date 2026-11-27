@@ -1,0 +1,20 @@
+
+public class SkillRule extends EligibilityRule {
+
+    @Override
+    public String getRuleName() {
+        return "Skills";
+    }
+
+    @Override
+    public boolean check(Candidate candidate, Job job) {
+        String[] requiredSkills = job.getRequiredSkills();
+
+        for (String requiredSkill : requiredSkills) {
+            if (!candidate.hasSkill(requiredSkill)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

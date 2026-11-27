@@ -21,10 +21,19 @@ public class Main {
         // Reads the candidate's graduation year.
         int graduationYear = scanner.nextInt();
 
+        int skillCount = scanner.nextInt();
+        String[] skills = new String[skillCount];
+        for (int i = 0; i < skillCount; i++) {
+            skills[i] = scanner.next();
+        }
+
         // Builds a candidate record from the details entered above.
-        Candidate candidate = new Candidate(name, percentage, backlogs, graduationYear);
+        Candidate candidate = new Candidate(name, percentage, backlogs, graduationYear, skills);
         // Sets the job opening and the requirements used for this eligibility check.
-        Job job = new Job("Infosys", "Java Developer", 65.0, 0, 2026);
+
+        String[] requiredSkills = {"Java", "SQL"};
+        Job job = new Job("Infosys", "Java Developer", 65.0, 0, 2026, requiredSkills);
+
         // Creates the checker that will apply the eligibility rules.
         EligibilityChecker eligible = new EligibilityChecker();
 
@@ -48,18 +57,18 @@ public class Main {
         if (eligible.evaluate(candidate, job)) {
             // Displays this result when all checks pass.
             System.out.println("Final Result : ELIGIBLE");
-        // Handles the case where at least one check does not pass.
+            // Handles the case where at least one check does not pass.
         } else {
             // Displays this result when one or more checks fail.
             System.out.println("Final Result : NOT ELIGIBLE");
-        // Marks the end of the eligibility result choice.
+            // Marks the end of the eligibility result choice.
         }
         // Prints a closing line beneath the report.
         System.out.println("================================");
 
         // Closes the console input reader when the program is finished.
         scanner.close();
-    // Marks the end of the program's main method.
+        // Marks the end of the program's main method.
     }
 // Marks the end of the Main class.
 }
